@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Family Dinner</title>
+  <meta name="description" content="Family Dinner">
+  <script src="https://aframe.io/releases/0.1.3/aframe.min.js"></script>
+  <script src="https://rawgit.com/aframevr/aframe/9d74d3e789b9293395d628a6d0866d11938bfc4e/dist/aframe.min.js"></script>
+  <script src="dist/aframe-gltf.min.js"></script>
+
+</head>
+<body>
+<a-scene>
+
+  <a-assets>
+    <a-mixin id="floor" geometry="primitive: plane; height: 50; width: 20" position="0 -0.5 0" rotation="-90 0 0"
+             material="shader: flat; src: url(floor3.jpg); repeat: 10 10"></a-mixin>
+    <a-asset-item id="model" src="w-table.glb"></a-asset-item>
+
+  </a-assets>
+
+  <a-entity id="gltf" gltf-model="asset: #model; loop: true; auto: true;">
+
+    <!--sky and floor-->
+    <a-entity mixin="floor"></a-entity>
+    <a-sky src="night-sky1.jpg" radius="5000">
+      <a-root>
+        <a-entity geometry="primitive: sphere;
+                      radius: 5000;
+                      segmentsWidth: 64;
+                      segmentsHeight: 64" material="shader: flat;
+                      src: url();
+                      color: #fff;
+                      fog: false" scale="-1 1 1">
+        </a-entity>
+      </a-root>
+    </a-sky>
+
+
+    <!--camera and cursor-->
+
+
+</a-scene>
+</body>
+</html>
